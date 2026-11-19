@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Álvaro Ribeiro Peixoto — Hidrologia, Geoprocessamento e Dados Ambientais</title>
+<meta name="description" content="Portfólio de Álvaro Ribeiro Peixoto, estudante de Engenharia Ambiental e Sanitária (IFPA Parauapebas): modelagem hidrológica e hidráulica, geoprocessamento, sensoriamento remoto e análise de dados ambientais.">
+<meta property="og:title" content="Álvaro Ribeiro Peixoto — Portfólio">
+<meta property="og:description" content="Hidrologia e modelagem, geoprocessamento e sensoriamento remoto, análise de dados ambientais.">
+<meta property="og:image" content="img/hec-swe-elm-1000.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --rio:#12302F; --rio-2:#1F4A47;
+    --sedimento:#B9832B; --mata:#2F5D3A;
+    --nevoa:#E8EEEA; --papel:#F6F8F6;
+    --cinza:#5B6E69; --linha:#C5D1CC;
+    --measure:66ch;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:"Archivo",system-ui,sans-serif;font-variation-settings:"wdth" 100;
+    font-size:1.0625rem;line-height:1.6;color:var(--rio);background:var(--nevoa);-webkit-font-smoothing:antialiased}
+  a{color:inherit}
+  img{display:block;max-width:100%;height:auto}
+  :focus-visible{outline:3px solid var(--sedimento);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 clamp(1.25rem,4vw,2.5rem)}
+
+  .top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
+  .sig{font-weight:700;font-variation-settings:"wdth" 112;text-decoration:none}
+  .top nav{display:flex;gap:1.4rem;flex-wrap:wrap}
+  .top nav a{text-decoration:none;color:var(--cinza);font-size:.95rem}
+  .top nav a:hover{color:var(--rio)}
+
+  .hero{padding:clamp(2.5rem,7vw,5rem) 0 0;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:end}
+  .hero h1{font-size:clamp(2.6rem,7vw,5.4rem);line-height:.95;font-weight:780;font-variation-settings:"wdth" 125;letter-spacing:-.03em}
+  .hero .role{margin-top:1.25rem;font-size:clamp(1.15rem,1.8vw,1.4rem);font-weight:600;font-variation-settings:"wdth" 110;color:var(--rio-2)}
+  .hero .lede{color:var(--rio-2);max-width:46ch}
+  .acts{display:flex;gap:.75rem;margin-top:1.5rem;flex-wrap:wrap}
+  .btn{display:inline-block;padding:.75rem 1.25rem;border-radius:999px;text-decoration:none;font-weight:600;font-size:.97rem;border:1.5px solid var(--rio);transition:background .2s,color .2s}
+  .btn.solid{background:var(--rio);color:var(--papel)}
+  .btn.solid:hover{background:var(--rio-2)}
+  .btn.ghost:hover{background:var(--rio);color:var(--papel)}
+
+  section{padding:clamp(4rem,9vw,6.5rem) 0 0}
+  h2{font-size:clamp(1.8rem,3.6vw,2.6rem);line-height:1.08;font-weight:720;font-variation-settings:"wdth" 118;letter-spacing:-.02em;max-width:24ch}
+  h3{font-size:1.2rem;font-weight:680;font-variation-settings:"wdth" 108;line-height:1.25}
+  .intro{margin-top:1rem;max-width:var(--measure);color:var(--rio-2)}
+
+  /* destaque */
+  .feature{margin-top:clamp(2.5rem,6vw,4rem)}
+  .feature .kicker{color:var(--mata);font-weight:640;font-size:.98rem}
+  .feature h2{margin-top:.5rem;max-width:26ch}
+  .compare{margin-top:2rem;position:relative;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 1px 0 var(--linha),0 18px 40px -24px rgba(18,48,47,.45);user-select:none;touch-action:pan-y}
+  .compare img{width:100%}
+  .compare .over{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos,50%))}
+  .compare .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none;box-shadow:0 0 0 1px rgba(18,48,47,.35)}
+  .compare .handle::after{content:"";position:absolute;top:50%;left:50%;width:38px;height:38px;border-radius:50%;transform:translate(-50%,-50%);
+    background:var(--rio) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23F6F8F6' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l-5 6 5 6M15 6l5 6-5 6'/%3E%3C/svg%3E") center/20px no-repeat;border:2px solid #fff}
+  .compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+  .compare .tag{position:absolute;top:12px;padding:.3rem .7rem;border-radius:999px;background:rgba(18,48,47,.86);color:#fff;font-size:.82rem;font-weight:600;pointer-events:none}
+  .compare .tag.l{left:12px}.compare .tag.r{right:12px}
+  .compare-cap{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-top:.75rem;font-size:.88rem;color:var(--cinza)}
+  .compare-cap a{color:var(--rio-2)}
+
+  .videos{margin-top:2.5rem}
+  .videos h3{margin-bottom:.4rem}
+  .videos>p{color:var(--rio-2);max-width:var(--measure)}
+  .vgrid{margin-top:1.25rem;display:grid;grid-template-columns:1fr 1fr;gap:clamp(1rem,2.5vw,1.75rem)}
+  .vgrid figure{margin:0}
+  .vgrid video{display:block;width:100%;height:auto;border-radius:10px;background:#000;border:1px solid var(--linha)}
+  .vgrid figcaption{margin-top:.5rem;font-size:.9rem;color:var(--cinza)}
+  .results{margin-top:2.5rem;display:grid;grid-template-columns:repeat(3,1fr);border-top:1.5px solid var(--rio);border-bottom:1px solid var(--linha)}
+  .results div{padding:1.4rem 1.5rem 1.4rem 0}
+  .results div+div{padding-left:1.5rem;border-left:1px solid var(--linha)}
+  .results strong{display:block;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:720;font-variation-settings:"wdth" 115;line-height:1.1;font-variant-numeric:tabular-nums}
+  .results span{display:block;margin-top:.35rem;color:var(--rio-2);font-size:.95rem}
+
+  .method{margin-top:3rem;display:grid;grid-template-columns:1fr 1.35fr;gap:clamp(2rem,5vw,4rem)}
+  .method p{color:var(--rio-2);max-width:52ch}
+  .method p+p{margin-top:1rem}
+  .steps{list-style:none;counter-reset:s}
+  .steps li{counter-increment:s;display:grid;grid-template-columns:2.4rem 1fr;gap:.2rem .9rem;padding:1.1rem 0;border-top:1px solid var(--linha)}
+  .steps li:first-child{border-top:0;padding-top:0}
+  .steps li::before{content:counter(s);grid-row:span 2;width:2.1rem;height:2.1rem;border-radius:50%;background:var(--rio);color:var(--papel);display:grid;place-items:center;font-weight:700;font-size:.92rem}
+  .steps b{font-weight:660}
+  .steps span{color:var(--rio-2);font-size:.97rem}
+  details{margin-top:1.75rem;border:1px solid var(--linha);border-radius:12px;background:var(--papel)}
+  summary{cursor:pointer;padding:1rem 1.25rem;font-weight:640;list-style:none;display:flex;justify-content:space-between;gap:1rem}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-weight:500;font-size:1.3rem;line-height:1}
+  details[open] summary::after{content:"−"}
+  details ul{padding:0 1.25rem 1.25rem 2.5rem;color:var(--rio-2);font-size:.97rem;display:grid;gap:.4rem}
+  .toolline{margin-top:1.5rem;color:var(--cinza);font-size:.95rem}
+  .toolline b{color:var(--rio);font-weight:640}
+
+  /* áreas */
+  .area{padding-top:clamp(4rem,9vw,6.5rem)}
+  .area-head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;padding-bottom:1.5rem;border-bottom:1.5px solid var(--rio)}
+  .area-head p{color:var(--rio-2);max-width:52ch}
+  .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(1.5rem,3vw,2.5rem);margin-top:2rem}
+  .projects.two{grid-template-columns:repeat(2,1fr)}
+  .proj figure{border-radius:10px;overflow:hidden;background:#fff;border:1px solid var(--linha)}
+  .proj figure a{display:block}
+  .proj figure img{width:100%;transition:opacity .2s}
+  .proj figure a:hover img{opacity:.88}
+  .wide{margin-top:2.5rem;display:grid;grid-template-columns:1fr 2.4fr;gap:clamp(1.5rem,3vw,2.5rem);align-items:start}
+  .wide h3{margin-top:0}
+  .proj figure.ph{display:grid;place-items:center;color:var(--cinza);font-size:.85rem;text-align:center;padding:1rem;
+    background:repeating-linear-gradient(135deg,var(--papel) 0 10px,#EEF2EF 10px 20px)}
+  .proj h3{margin-top:1rem}
+  .proj p{margin-top:.5rem;color:var(--rio-2);font-size:.97rem}
+  .proj .tools{margin-top:.8rem;display:flex;flex-wrap:wrap;gap:.35rem}
+  .tools{display:flex;flex-wrap:wrap;gap:.35rem}
+  .tools span{font-size:.8rem;padding:.22rem .6rem;border-radius:999px;background:var(--papel);border:1px solid var(--linha)}
+
+  .research{background:var(--rio);color:var(--papel);border-radius:18px;padding:clamp(1.5rem,3.5vw,2.5rem);display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(1.5rem,4vw,3rem)}
+  .research p{color:#CFDCD8;margin-top:.75rem}
+  .research dl{display:grid;grid-template-columns:auto 1fr;gap:.55rem 1.1rem;font-size:.95rem;align-content:start}
+  .research dt{color:var(--sedimento);font-weight:600}
+  .research dd{color:#E4ECE9}
+  .research .tools span{background:transparent;border-color:rgba(255,255,255,.25);color:#E4ECE9}
+
+  .stack{margin-top:2rem;display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--linha)}
+  .stack div{padding:1.25rem 1.5rem 1.25rem 0}
+  .stack div+div{padding-left:1.5rem;border-left:1px solid var(--linha)}
+  .stack h4{font-size:.98rem;font-weight:660}
+  .stack p{color:var(--rio-2);font-size:.93rem;margin-top:.35rem}
+
+  /* trajetória */
+  .timeline{margin-top:2rem;list-style:none;max-width:840px}
+  .timeline li{display:grid;grid-template-columns:10rem 1fr;gap:1.5rem;padding:1.4rem 0;border-top:1px solid var(--linha)}
+  .timeline time{font-weight:600;color:var(--cinza);font-variant-numeric:tabular-nums;font-size:.95rem}
+  .timeline .org{color:var(--cinza);font-size:.95rem;margin-top:.15rem}
+  .timeline p{margin-top:.55rem;color:var(--rio-2);font-size:.97rem;max-width:62ch}
+
+  .contact{margin-top:clamp(4rem,9vw,6.5rem);padding:clamp(2.5rem,6vw,4rem) 0;border-top:1.5px solid var(--rio)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
+  .contact ul{list-style:none;display:grid;gap:.5rem;color:var(--rio-2)}
+  .contact ul li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--mata);margin-right:.7rem;vertical-align:middle}
+  .links a{display:flex;justify-content:space-between;gap:1rem;padding:.9rem 0;border-bottom:1px solid var(--linha);text-decoration:none;font-weight:600}
+  .links a span{color:var(--cinza);font-weight:400;overflow-wrap:anywhere;text-align:right}
+  .links a:hover{color:var(--rio-2)}
+  footer{padding:2rem 0 3rem;color:var(--cinza);font-size:.85rem}
+
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  @media (max-width:900px){
+    .wide{grid-template-columns:1fr}
+    .hero,.method,.research,.contact-grid,.area-head{grid-template-columns:1fr}
+    .projects,.projects.two{grid-template-columns:1fr 1fr}
+    .stack{grid-template-columns:1fr}
+    .stack div,.stack div+div{padding:1.1rem 0;border-left:0;border-top:1px solid var(--linha)}
+  }
+  @media (max-width:600px){
+    .vgrid{grid-template-columns:1fr}
+    .projects,.projects.two{grid-template-columns:1fr}
+    .results{grid-template-columns:1fr}
+    .results div,.results div+div{padding:1.1rem 0;border-left:0}
+    .results div+div{border-top:1px solid var(--linha)}
+    .timeline li{grid-template-columns:1fr;gap:.3rem}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="sig" href="#inicio">Álvaro Peixoto</a>
+    <nav aria-label="Seções">
+      <a href="#hidrologia">Hidrologia</a>
+      <a href="#geo">Geoprocessamento</a>
+      <a href="#dados">Dados ambientais</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <div class="hero">
+      <div>
+        <h1>Álvaro Ribeiro Peixoto</h1>
+        <p class="role">Hidrologia, geoprocessamento e dados ambientais</p>
+      </div>
+      <div>
+        <p class="lede">Estudante de Engenharia Ambiental e Sanitária no IFPA Parauapebas. Uso dados públicos, SIG e Python para entender como as bacias do sudeste do Pará respondem à chuva, da erosão do solo às manchas de inundação.</p>
+        <div class="acts">
+          <a class="btn solid" href="#destaque">Ver projetos</a>
+          <a class="btn ghost" href="#contato">Entrar em contato</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESTAQUE: HEC-HMS + HEC-RAS -->
+    <section id="destaque" class="feature" aria-labelledby="t-dest">
+      <p class="kicker">Projeto em destaque: modelagem hidrológica e hidráulica</p>
+      <h2 id="t-dest">Como uma chuva extrema viraria inundação no Igarapé Ilha do Coco, em Parauapebas?</h2>
+      <p class="intro">Um estudo completo de mancha de inundação para uma chuva com tempo de recorrência de 100 anos (1% de chance em um ano qualquer), montado como se a Prefeitura de Parauapebas tivesse encomendado o trabalho. O requerente é fictício.</p>
+
+      <div class="compare" id="cmp" style="--pos:50%">
+        <img src="img/hec-onda-difusa-2400.jpg" alt="Mapa de profundidade máxima da água no Igarapé Ilha do Coco calculado pela equação de onda difusa" width="2400" height="1697">
+        <div class="over"><img src="img/hec-swe-elm-2400.jpg" alt="Mesmo mapa calculado pelas equações completas de águas rasas (SWE-ELM)" width="2400" height="1697"></div>
+        <div class="handle"></div>
+        <span class="tag l">Onda Difusa</span>
+        <span class="tag r">SWE-ELM</span>
+        <input type="range" min="0" max="100" value="50" step="0.5" aria-label="Comparar os mapas de Onda Difusa e SWE-ELM">
+      </div>
+      <div class="compare-cap">
+        <span>Arraste para comparar a profundidade máxima calculada pelos dois métodos.</span>
+        <span>Mapas em alta resolução: <a href="img/hec-onda-difusa-2400.jpg">Onda Difusa</a> e <a href="img/hec-swe-elm-2400.jpg">SWE-ELM</a></span>
+      </div>
+
+      <div class="videos">
+        <h3>A cheia acontecendo no HEC-RAS</h3>
+        <p>Gravações do RAS Mapper com a evolução da profundidade ao longo da chuva de 100 anos (simulação SWE-ELM). O tempo de simulação aparece no canto superior direito.</p>
+        <div class="vgrid">
+          <figure>
+            <video src="video/hec-ras-satelite.mp4" poster="video/hec-ras-satelite.jpg" muted loop playsinline controls preload="metadata" width="1280" height="688"></video>
+            <figcaption>Sobre imagem de satélite: onde a água chega na cidade</figcaption>
+          </figure>
+          <figure>
+            <video src="video/hec-ras-terreno.mp4" poster="video/hec-ras-terreno.jpg" muted loop playsinline controls preload="metadata" width="1280" height="688"></video>
+            <figcaption>Sobre o terreno (ANADEM) com curvas de nível de 5 m: por que a água vai para onde vai</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="results" role="list">
+        <div role="listitem"><strong>6,75 / 6,86 km²</strong><span>Área inundada com a Onda Difusa e com o SWE-ELM</span></div>
+        <div role="listitem"><strong>&lt; 2%</strong><span>De diferença entre os métodos; profundidades em média 6 cm maiores no SWE-ELM</span></div>
+        <div role="listitem"><strong>&lt; 0,002%</strong><span>De erro no balanço de volume do modelo hidráulico</span></div>
+      </div>
+
+      <div class="method">
+        <div>
+          <h3>O que o estudo mostra</h3>
+          <p>A simplificação por Onda Difusa, padrão em mapeamento de inundações e bem mais rápida, chegou praticamente à mesma mancha que as equações completas de águas rasas, que consideram a inércia. Para este caso, ela se mostrou adequada.</p>
+          <p>Também testei a condição de contorno de saída: ela só influenciou os últimos ~600 m antes da jusante.</p>
+          <details>
+            <summary>Limitações e incertezas</summary>
+            <ul>
+              <li>Usa apenas dados públicos e gratuitos e não deve ser usado para tomada de decisão.</li>
+              <li>O terreno de 30 m não representa a calha, pontes, bueiros e obras recentes.</li>
+              <li>A mata ciliar deixa resquícios no modelo de terreno.</li>
+              <li>A chuva de satélite tende a subestimar extremos.</li>
+              <li>O remanso do rio Parauapebas não foi incluído.</li>
+              <li>Não há dados medidos para calibrar o modelo.</li>
+            </ul>
+          </details>
+          <p class="toolline"><b>Ferramentas:</b> HEC-HMS, HEC-RAS, QGIS e Python. <a href="https://lnkd.in/p/ewcJPg-P">Ver a publicação no LinkedIn</a></p>
+        </div>
+        <ol class="steps" aria-label="Etapas do estudo">
+          <li><b>Chuva de projeto</b><span>43 anos de dados diários do CHIRPS (1981–2023), ajuste GEV das máximas anuais e desagregação em uma chuva de 24 h com intervalos de 15 min: 131 mm no total.</span></li>
+          <li><b>Hidrologia no HEC-HMS</b><span>Bacia de ~282 km² dividida em 12 sub-bacias. Escoamento pelo Curve Number (uso do solo do MapBiomas e solos do IBGE) e hidrograma unitário do SCS.</span></li>
+          <li><b>Hidráulica 2D no HEC-RAS</b><span>Malha de 30 m sobre o MDE ANADEM, recebendo os hidrogramas de cada sub-bacia.</span></li>
+          <li><b>Comparação de métodos</b><span>Profundidade máxima calculada por Onda Difusa e por SWE-ELM, e teste de sensibilidade da condição de saída.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- HIDROLOGIA -->
+    <section id="hidrologia" class="area" aria-labelledby="t-hid">
+      <div class="area-head">
+        <h2 id="t-hid">Hidrologia e modelagem</h2>
+        <p>Relação chuva-vazão, produção de sedimentos e cheias. Organizo e preparo os dados de entrada e configuro os modelos.</p>
+      </div>
+      <div class="research" style="margin-top:2rem">
+        <div>
+          <h3>Produção de sedimentos na Bacia do Rio Itacaiúnas</h3>
+          <p>Pesquisa de iniciação científica com o modelo SWAT para estimar a produção de sedimentos associada à erosão do solo. A perda de solo é calculada pela MUSLE, com bases de uso da terra, solos, relevo, clima (CHIRPS e ERA5-Land) e vazões da ANA. Os mapas e gráficos abaixo fazem parte dessa base.</p>
+          <div class="tools" style="margin-top:1rem"><span>SWAT</span><span>MUSLE</span><span>QGIS</span><span>Python</span></div>
+        </div>
+        <dl>
+          <dt>Status</dt><dd>Em andamento, desde ago/2026</dd>
+          <dt>Orientação</dt><dd>Dra. Paula Resende dos Santos (IFPA) e Dr. Paulo Rufino (Helmholtz Centre for Environmental Research – UFZ)</dd>
+        </dl>
+      </div>
+      <article class="proj wide">
+        <div>
+          <h3>Hidrograma de vazões e chuvas diárias, 1981–2024</h3>
+          <p>Mais de 40 anos de vazões diárias da Estação Fazenda Alegria (ANA 29100000) cruzados com a precipitação diária do CHIRPS, para ler a resposta da bacia à chuva e a sazonalidade das cheias.</p>
+          <div class="tools"><span>ANA</span><span>CHIRPS</span><span>Python</span><span>Matplotlib</span></div>
+        </div>
+        <figure><a href="img/chuva-vazao-2000.jpg"><img src="img/chuva-vazao-1000.jpg" alt="Hidrograma de vazões médias diárias e precipitação diária na Bacia do Rio Itacaiúnas, de 1981 a 2024" loading="lazy"></a></figure>
+      </article>
+    </section>
+
+    <!-- GEOPROCESSAMENTO -->
+    <section id="geo" class="area" aria-labelledby="t-geo">
+      <div class="area-head">
+        <h2 id="t-geo">Geoprocessamento e sensoriamento remoto</h2>
+        <p>Mapas temáticos e bases espaciais prontas para análise: drenagem, relevo, solos e uso da terra, em SIRGAS 2000 / UTM.</p>
+      </div>
+      <div class="projects">
+        <article class="proj">
+          <figure><a href="img/drenagem-microbacia-2000.jpg"><img src="img/drenagem-microbacia-1000.jpg" alt="Mapas de drenagem principal, hipsometria e declividade de uma microbacia em Parauapebas" loading="lazy"></a></figure>
+          <h3>Drenagem de uma microbacia em Parauapebas</h3>
+          <p>Delimitação da microbacia e da rede de drenagem a partir do MDE do TOPODATA (INPE) com o r.watershed, com mapas de hipsometria (153 a 592 m) e declividade.</p>
+          <div class="tools"><span>QGIS</span><span>GRASS r.watershed</span><span>TOPODATA</span></div>
+        </article>
+        <article class="proj">
+          <figure><a href="img/solos-itacaiunas-2000.jpg"><img src="img/solos-itacaiunas-1000.jpg" alt="Mapa de classes de solos da Bacia Hidrográfica do Rio Itacaiúnas" loading="lazy"></a></figure>
+          <h3>Classes de solo da Bacia do Itacaiúnas</h3>
+          <p>Oito classes de solo identificadas na bacia, a partir da base do IBGE tratada com script em Python e convertida de vetor para raster.</p>
+          <div class="tools"><span>IBGE</span><span>Python</span><span>QGIS</span></div>
+        </article>
+        <article class="proj">
+          <figure><a href="img/uso-solo-2000.jpg"><img src="img/uso-solo-1000.jpg" alt="Mudanças no uso e ocupação do solo na Bacia do Rio Itacaiúnas em 1985, 2004 e 2024" loading="lazy"></a></figure>
+          <h3>Uso do solo de 1985 a 2024</h3>
+          <p>Três retratos da bacia (1985, 2004 e 2024) com a Coleção 10.1 do MapBiomas, processada no Google Earth Engine, mostrando a floresta dando lugar à pastagem.</p>
+          <div class="tools"><span>Google Earth Engine</span><span>MapBiomas</span><span>QGIS</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DADOS AMBIENTAIS -->
+    <section id="dados" class="area" aria-labelledby="t-dados">
+      <div class="area-head">
+        <h2 id="t-dados">Análise de dados ambientais</h2>
+        <p>Séries de satélite e de reanálise transformadas em normais climatológicas e gráficos que mostram o regime da região.</p>
+      </div>
+      <div class="projects two">
+        <article class="proj">
+          <figure><a href="img/normal-precipitacao-1548.jpg"><img src="img/normal-precipitacao-1000.jpg" alt="Normal climatológica de precipitação mensal na Bacia do Rio Itacaiúnas, ERA5-Land 1994–2024" loading="lazy"></a></figure>
+          <h3>Normal climatológica de precipitação</h3>
+          <p>ERA5-Land de 1994 a 2024: chuvas concentradas de dezembro a abril, com pico de 319 mm em março, e um período seco de junho a setembro que chega a 14 mm em agosto.</p>
+          <div class="tools"><span>ERA5-Land</span><span>Python</span><span>Matplotlib</span></div>
+        </article>
+        <article class="proj">
+          <figure><a href="img/normal-temp-umidade-2000.jpg"><img src="img/normal-temp-umidade-1000.jpg" alt="Normais climatológicas de temperatura e umidade relativa na Bacia do Rio Itacaiúnas, ERA5-Land 1994–2024" loading="lazy"></a></figure>
+          <h3>Normais de temperatura e umidade relativa</h3>
+          <p>Mesmo período e fonte: a umidade cai de 88% na estação chuvosa para 56% em agosto, enquanto a temperatura média sobe de 25 °C para quase 29 °C em setembro.</p>
+          <div class="tools"><span>ERA5-Land</span><span>Pandas</span><span>Matplotlib</span></div>
+        </article>
+      </div>
+      <div class="stack">
+        <div><h4>Python</h4><p>Pandas, GeoPandas, NumPy e Matplotlib para ler, limpar, analisar e visualizar dados tabulares e espaciais, no Google Colab.</p></div>
+        <div><h4>Machine Learning</h4><p>Estudo de Scikit-learn e PyTorch, com foco futuro em previsão de vazões e eventos extremos.</p></div>
+        <div><h4>Estudando agora</h4><p>Linguagem R e aprofundamento em HEC-HMS e HEC-RAS.</p></div>
+      </div>
+    </section>
+
+    <!-- TRAJETÓRIA -->
+    <section id="trajetoria" aria-labelledby="t-traj">
+      <h2 id="t-traj">Trajetória</h2>
+      <ol class="timeline" reversed>
+        <li>
+          <time>2026 – hoje</time>
+          <div><h3>Iniciação científica</h3><div class="org">IFPA Campus Parauapebas</div>
+          <p>Modelagem de produção de sedimentos com SWAT na Bacia do Rio Itacaiúnas.</p></div>
+        </li>
+        <li>
+          <time>Out/2023 – Abr/2026</time>
+          <div><h3>Auxiliar Administrativo de Frota</h3><div class="org">Geosol Geologia e Sondagens S/A</div>
+          <p>Controle documental e mobilização de veículos para clientes de mineração como Vale e Vale Base Metals; base de dados centralizada em SharePoint; planilhas de manutenção preventiva; indicadores, análise de falhas e apresentações para a gerência. Contato com rotinas de SSMA: destinação de pneus inservíveis, efluentes oleosos e auditorias ambientais.</p></div>
+        </li>
+        <li>
+          <time>2023 – hoje</time>
+          <div><h3>Bacharelado em Engenharia Ambiental e Sanitária</h3><div class="org">Instituto Federal do Pará, Campus Parauapebas</div>
+          <p>8º período, com conclusão prevista para julho de 2028.</p></div>
+        </li>
+        <li>
+          <time>2020 – 2022</time>
+          <div><h3>Jovem Aprendiz Administrativo</h3><div class="org">Caixa Econômica Federal</div>
+          <p>Organização do acervo documental da agência, controle de qualidade da digitalização e correção de inconsistências para evitar não conformidades.</p></div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="contato" class="contact" aria-labelledby="t-contato">
+      <h2 id="t-contato">Procuro estágio em meio ambiente, recursos hídricos e geoprocessamento</h2>
+      <p class="intro">Tenho interesse especial em mineração, consultoria ambiental e saneamento.</p>
+      <div class="contact-grid">
+        <ul aria-label="Disponibilidade">
+          <li>Início imediato</li>
+          <li>6 horas por dia, de segunda a sexta</li>
+          <li>Presencial, híbrido ou remoto</li>
+          <li>Disponível para viagens</li>
+          <li>Base em Parauapebas, PA</li>
+        </ul>
+        <div class="links">
+          <a href="mailto:alvaroribeiropeixoto@gmail.com">E-mail <span>alvaroribeiropeixoto@gmail.com</span></a>
+          <a href="https://www.linkedin.com/in/alvaro-ribeiro-peixoto-61041a27a/">LinkedIn <span>linkedin.com/in/alvaro-ribeiro-peixoto</span></a>
+          <a href="https://github.com/alvaroribeiropeixoto">GitHub <span>github.com/alvaroribeiropeixoto</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>Álvaro Ribeiro Peixoto, Parauapebas, Pará</footer>
+</div>
+<script>
+  (function(){
+    var c=document.getElementById('cmp'); if(!c) return;
+    var r=c.querySelector('input');
+    function set(){ c.style.setProperty('--pos', r.value+'%'); }
+    r.addEventListener('input', set); set();
+  })();
+  (function(){
+    if (!('IntersectionObserver' in window)) return;
+    if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v=e.target;
+        if(e.isIntersecting){ var p=v.play(); if(p&&p.catch) p.catch(function(){}); } else { v.pause(); }
+      });
+    },{threshold:.5});
+    document.querySelectorAll('.vgrid video').forEach(function(v){ io.observe(v); });
+  })();
+</script>
+</body>
+</html>
