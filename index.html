@@ -96,14 +96,24 @@
   .toolline{margin-top:1.5rem;color:var(--cinza);font-size:.95rem}
   .toolline b{color:var(--rio);font-weight:640}
 
-  .soon{margin-top:clamp(4rem,9vw,6.5rem);border:1.5px dashed var(--rio-2);border-radius:18px;padding:clamp(1.5rem,3.5vw,2.5rem);
-    display:grid;grid-template-columns:auto 1fr;gap:clamp(1.25rem,3vw,2.5rem);align-items:start;background:var(--papel)}
-  .soon .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .8rem;border-radius:999px;background:var(--rio);color:var(--papel);font-weight:640;font-size:.9rem;white-space:nowrap;justify-self:start}
+  .soon{margin-top:clamp(4rem,9vw,6.5rem);border:1.5px dashed var(--rio-2);border-radius:18px;padding:clamp(1.5rem,3.5vw,2.5rem);background:var(--papel)}
+  .soon .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .8rem;border-radius:999px;background:var(--rio);color:var(--papel);font-weight:640;font-size:.9rem;white-space:nowrap}
   .soon .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sedimento);animation:pulse 2s ease-in-out infinite}
   @keyframes pulse{50%{opacity:.35}}
+  .soon-head{display:grid;grid-template-columns:1fr;gap:1.75rem;margin-top:1.25rem}
+  .soon-text{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(1.5rem,4vw,3rem);align-items:start}
   .soon h2{font-size:clamp(1.5rem,2.8vw,2rem);max-width:none}
   .soon p{margin-top:.75rem;color:var(--rio-2);max-width:var(--measure)}
+  .soon .q{margin-top:1rem;padding-left:1rem;border-left:3px solid var(--sedimento);color:var(--rio);font-weight:560}
   .soon .tools{margin-top:1rem}
+  .soon figure{margin:0}
+  .soon svg{display:block;width:100%;height:auto;border-radius:10px;border:1px solid var(--linha);background:#fff}
+  .soon figcaption{margin-top:.5rem;font-size:.85rem;color:var(--cinza)}
+  .soon dl{margin-top:2rem;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--linha)}
+  .soon dl div{padding:1.1rem 1.25rem 0 0}
+  .soon dl div+div{padding-left:1.25rem;border-left:1px solid var(--linha)}
+  .soon dt{font-weight:660;font-size:.95rem}
+  .soon dd{margin-top:.35rem;color:var(--rio-2);font-size:.92rem}
   @media (prefers-reduced-motion:reduce){.soon .badge::before{animation:none}}
   /* áreas */
   .area{padding-top:clamp(4rem,9vw,6.5rem)}
@@ -157,13 +167,17 @@
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
   @media (max-width:900px){
     .wide{grid-template-columns:1fr}
+    .soon-text{grid-template-columns:1fr}
+    .soon dl{grid-template-columns:1fr 1fr}
+    .soon dl div:nth-child(3){padding-left:0;border-left:0}
     .hero,.method,.research,.contact-grid,.area-head{grid-template-columns:1fr}
     .projects,.projects.two{grid-template-columns:1fr 1fr}
     .stack{grid-template-columns:1fr}
     .stack div,.stack div+div{padding:1.1rem 0;border-left:0;border-top:1px solid var(--linha)}
   }
   @media (max-width:600px){
-    .soon{grid-template-columns:1fr}
+    .soon dl{grid-template-columns:1fr}
+    .soon dl div,.soon dl div+div{padding:1rem 0 0;border-left:0}
     .vgrid{grid-template-columns:1fr}
     .projects,.projects.two{grid-template-columns:1fr}
     .results{grid-template-columns:1fr}
@@ -271,11 +285,75 @@
     <!-- EM ANDAMENTO -->
     <section id="em-andamento" class="soon" aria-labelledby="t-soon">
       <span class="badge">Em andamento</span>
-      <div>
-        <h2 id="t-soon">Segmentação de corpos hídricos com Machine Learning</h2>
-        <p>Meu projeto atual: identificar automaticamente rios, lagos e reservatórios em imagens de satélite, comparando um classificador clássico (Random Forest) com uma rede neural de segmentação (U-Net). Os resultados entram aqui em breve.</p>
-        <div class="tools"><span>Random Forest</span><span>U-Net</span><span>Sensoriamento remoto</span><span>Python</span></div>
+      <div class="soon-head">
+        <div class="soon-text">
+          <div>
+          <h2 id="t-soon">Segmentação de corpos hídricos com Machine Learning</h2>
+          <p>Um segmentador que separa automaticamente os pixels de água dos de margem, solo, vegetação e área construída em qualquer cena Sentinel-2, sem ajuste manual. Comparo um Random Forest e uma U-Net contra uma referência simples (MNDWI &gt; 0).</p>
+          </div>
+          <div>
+          <p class="q" style="margin-top:0">Pergunta do trabalho: como a qualidade da segmentação muda entre rios largos e estreitos com o Sentinel-2 a 10 m?</p>
+          <p>A máscara de água é a base do próximo projeto: uma rede neural que estima turbidez a partir de medições de campo.</p>
+          <div class="tools"><span>Sentinel-2</span><span>Google Earth Engine</span><span>Colab</span><span>Scikit-learn</span><span>Random Forest</span><span>U-Net</span></div>
+          </div>
+        </div>
+        <figure>
+          <svg viewBox="0 0 960 330" role="img" aria-label="Ilustração: foz de um rio em cor verdadeira, à esquerda, e a máscara água/não-água correspondente, à direita, com rios largos, médios e estreitos">
+            <defs>
+              <g id="agua">
+                <path fill="currentColor" d="M330 0 C345 60 315 110 340 150 C360 190 320 240 345 300 L460 300 L460 0 Z"/>
+                <path fill="currentColor" d="M0 140 C80 135 150 120 220 110 C270 100 310 92 350 112 L350 196 C300 204 260 192 220 184 C150 173 80 161 0 157 Z"/>
+                <ellipse fill="currentColor" cx="150" cy="242" rx="24" ry="11"/>
+                <g fill="none" stroke="currentColor" stroke-linecap="round">
+                  <path stroke-width="7" d="M125 128 C112 90 134 50 108 0"/>
+                  <path stroke-width="2.5" d="M205 182 C214 222 188 262 204 300"/>
+                  <path stroke-width="2" d="M60 152 C50 192 72 232 40 300"/>
+                  <path stroke-width="2" d="M250 106 C262 70 240 40 262 0"/>
+                </g>
+              </g>
+              <g id="ilhas">
+                <path fill="currentColor" d="M268 150 C280 128 330 126 342 140 C352 156 330 176 300 174 C278 172 262 164 268 150 Z"/>
+                <ellipse fill="currentColor" cx="225" cy="148" rx="14" ry="6"/>
+              </g>
+              <linearGradient id="pluma" x1="0" x2="1">
+                <stop offset="0" stop-color="#8E6D42"/><stop offset=".45" stop-color="#6F7558"/><stop offset="1" stop-color="#2E5D78"/>
+              </linearGradient>
+              <clipPath id="oceano"><path d="M330 0 C345 60 315 110 340 150 C360 190 320 240 345 300 L460 300 L460 0 Z"/></clipPath>
+            </defs>
+            <!-- cor verdadeira -->
+            <g transform="translate(15 15)">
+              <rect width="460" height="300" fill="#4E7A3E"/>
+              <g fill="#668C4C"><ellipse cx="70" cy="60" rx="50" ry="26"/><ellipse cx="190" cy="40" rx="36" ry="18"/><ellipse cx="90" cy="270" rx="44" ry="20"/><ellipse cx="270" cy="250" rx="40" ry="24"/></g>
+              <g fill="#B4AE78" opacity=".85"><rect x="20" y="190" width="34" height="24"/><rect x="240" y="200" width="42" height="20"/><rect x="160" y="70" width="30" height="22"/><rect x="290" y="30" width="26" height="30"/></g>
+              <use href="#agua" color="#8B6A3F"/>
+              <rect width="460" height="300" fill="url(#pluma)" clip-path="url(#oceano)"/>
+              <use href="#ilhas" color="#557F43"/>
+              <rect x="8" y="8" width="196" height="26" rx="13" fill="rgba(18,48,47,.85)"/>
+              <text x="106" y="26" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Sentinel-2, cor verdadeira</text>
+            </g>
+            <!-- máscara -->
+            <g transform="translate(485 15)">
+              <rect width="460" height="300" fill="#ECEFEC"/>
+              <use href="#agua" color="#1D6FA5"/>
+              <use href="#ilhas" color="#ECEFEC"/>
+              <rect x="8" y="8" width="196" height="26" rx="13" fill="rgba(18,48,47,.85)"/>
+              <text x="106" y="26" text-anchor="middle" fill="#fff" font-size="13" font-weight="600">Máscara água / não-água</text>
+              <g font-size="12.5" font-weight="600" fill="#12302F">
+                <line x1="395" y1="200" x2="395" y2="250" stroke="#12302F"/><rect x="352" y="250" width="86" height="22" rx="4" fill="#fff"/><text x="395" y="265" text-anchor="middle">&gt; 100 m</text>
+                <line x1="122" y1="80" x2="150" y2="80" stroke="#12302F"/><rect x="150" y="69" width="76" height="22" rx="4" fill="#fff"/><text x="188" y="84" text-anchor="middle">30–100 m</text>
+                <line x1="208" y1="240" x2="240" y2="240" stroke="#12302F"/><rect x="240" y="229" width="62" height="22" rx="4" fill="#fff"/><text x="271" y="244" text-anchor="middle">&lt; 30 m</text>
+              </g>
+            </g>
+          </svg>
+          <figcaption>Ilustração esquemática do que o segmentador entrega, com as três faixas de largura avaliadas. Os resultados reais entram aqui em breve.</figcaption>
+        </figure>
       </div>
+      <dl>
+        <div><dt>Dados</dt><dd>Sentinel-2 em reflectância de superfície, nuvens filtradas pelo Cloud Score+ e cenas de uma única data, em rios de água preta, clara e barrenta, reservatórios, rios urbanos e várzea.</dd></div>
+        <div><dt>Modelos</dt><dd>Random Forest com bandas e índices (NDWI, MNDWI, AWEI) e U-Net treinada com o Sen1Floods11 e rótulos próprios.</dd></div>
+        <div><dt>Validação</dt><dd>Locais de validação fora do treino, estratos por largura do rio e faixa de margem, com F1 e IoU e intervalo de confiança por bootstrap.</dd></div>
+        <div><dt>Produtos</dt><dd>Máscara de água em 10 m, distância à margem e polígono vetorial do corpo hídrico, pronto para o QGIS.</dd></div>
+      </dl>
     </section>
 
     <!-- HIDROLOGIA -->
