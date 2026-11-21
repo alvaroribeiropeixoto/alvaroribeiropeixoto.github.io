@@ -96,6 +96,15 @@
   .toolline{margin-top:1.5rem;color:var(--cinza);font-size:.95rem}
   .toolline b{color:var(--rio);font-weight:640}
 
+  .soon{margin-top:clamp(4rem,9vw,6.5rem);border:1.5px dashed var(--rio-2);border-radius:18px;padding:clamp(1.5rem,3.5vw,2.5rem);
+    display:grid;grid-template-columns:auto 1fr;gap:clamp(1.25rem,3vw,2.5rem);align-items:start;background:var(--papel)}
+  .soon .badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .8rem;border-radius:999px;background:var(--rio);color:var(--papel);font-weight:640;font-size:.9rem;white-space:nowrap;justify-self:start}
+  .soon .badge::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sedimento);animation:pulse 2s ease-in-out infinite}
+  @keyframes pulse{50%{opacity:.35}}
+  .soon h2{font-size:clamp(1.5rem,2.8vw,2rem);max-width:none}
+  .soon p{margin-top:.75rem;color:var(--rio-2);max-width:var(--measure)}
+  .soon .tools{margin-top:1rem}
+  @media (prefers-reduced-motion:reduce){.soon .badge::before{animation:none}}
   /* áreas */
   .area{padding-top:clamp(4rem,9vw,6.5rem)}
   .area-head{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:end;padding-bottom:1.5rem;border-bottom:1.5px solid var(--rio)}
@@ -154,6 +163,7 @@
     .stack div,.stack div+div{padding:1.1rem 0;border-left:0;border-top:1px solid var(--linha)}
   }
   @media (max-width:600px){
+    .soon{grid-template-columns:1fr}
     .vgrid{grid-template-columns:1fr}
     .projects,.projects.two{grid-template-columns:1fr}
     .results{grid-template-columns:1fr}
@@ -258,6 +268,16 @@
       </div>
     </section>
 
+    <!-- EM ANDAMENTO -->
+    <section id="em-andamento" class="soon" aria-labelledby="t-soon">
+      <span class="badge">Em andamento</span>
+      <div>
+        <h2 id="t-soon">Segmentação de corpos hídricos com Machine Learning</h2>
+        <p>Meu projeto atual: identificar automaticamente rios, lagos e reservatórios em imagens de satélite, comparando um classificador clássico (Random Forest) com uma rede neural de segmentação (U-Net). Os resultados entram aqui em breve.</p>
+        <div class="tools"><span>Random Forest</span><span>U-Net</span><span>Sensoriamento remoto</span><span>Python</span></div>
+      </div>
+    </section>
+
     <!-- HIDROLOGIA -->
     <section id="hidrologia" class="area" aria-labelledby="t-hid">
       <div class="area-head">
@@ -335,7 +355,7 @@
       </div>
       <div class="stack">
         <div><h4>Python</h4><p>Pandas, GeoPandas, NumPy e Matplotlib para ler, limpar, analisar e visualizar dados tabulares e espaciais, no Google Colab.</p></div>
-        <div><h4>Machine Learning</h4><p>Estudo de Scikit-learn e PyTorch, com foco futuro em previsão de vazões e eventos extremos.</p></div>
+        <div><h4>Machine Learning</h4><p>Scikit-learn e PyTorch, aplicados agora na <a href="#em-andamento">segmentação de corpos hídricos</a>, com interesse futuro em previsão de vazões e eventos extremos.</p></div>
         <div><h4>Estudando agora</h4><p>Linguagem R e aprofundamento em HEC-HMS e HEC-RAS.</p></div>
       </div>
     </section>
